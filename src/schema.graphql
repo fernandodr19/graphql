@@ -1,0 +1,15 @@
+type User {
+    id: ID!              #! means that this field is mandatory
+    name: String!
+    email: String!
+}
+
+type Query {
+    users: [User!]!      #Inside  !: Everything inside the array must be an User
+                         #Outside !: Query must always return an array (may be empty)
+    user(id: ID!): User  #Return not mandatory
+}
+
+type Mutation {
+    createUser(name: String!, email: String!): User
+}
